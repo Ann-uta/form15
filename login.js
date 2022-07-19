@@ -16,7 +16,7 @@ pass2.style.borderColor = 'grey';
 phone.style.borderColor = 'grey';
 
 function welcome() {  
-    window.location.href = 'index.html';
+    window.location.href = '1.html';
 }
 
     if (firstname.value =='') {
