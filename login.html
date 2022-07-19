@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h2>Регистрация</h2>
+        </div>
+        <form class="form" action="#">
+            <div class="form__item">
+                <label class="form__item_label" for="name">Имя</label><br />
+                <input class="form__item_input" id="name" type="text"></div>
+            <div class="form__item">
+                <label class="form__item_label" for="lastname">Фамилия</label><br />
+                <input class="form__item_input" id="lastname" type="text"></div>
+            <div class="form__item">
+                <label class="form__item_label" for="login">Придумайте логин</label><br />
+                <input class="form__item_input" id="login" type="text"></div>
+            <div class="form__item">
+                <label class="form__item_label" for="password1">Придумайте пароль</label><br />
+                <input class="form__item_input" id="password1" type="password"></div>
+            <div class="form__item">
+                <label class="form__item_label" for="password2">Повторите пароль</label><br />
+                <input class="form__item_input" id="password2" type="password"></div>
+            <div class="form__item">
+                <label class="form__item_label" for="phone">Введите номер мобильного телефона</label><br />
+                <input class="form__item_input" id="phone" type="number" placeholder="+7"></div>
+            <div id="errorMessage"></div>
+            <button class="button" onclick="check()">Зарегистрироваться</button>
+
+            <div class="conditions">
+                <p>Нажимая кнопку «Зарегистрироваться»:</p>
+                <input class="checkbox" id="conditions" type="checkbox" checked name="conditions" value="yes">
+                <label for="conditions"> Я принимаю условия <span>Пользовательского соглашения</span> и даю своё
+                    согласие на обработку моей персональной информации на условиях, определенных <span> Политикой
+                        конфиденциальности</span>.</label>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>
