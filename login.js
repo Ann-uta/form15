@@ -1,59 +1,53 @@
-function check() {
-let firstname = document.getElementById("name");
-let lastname = document.getElementById("lastname");
-let login = document.getElementById("login");
-let pass1 = document.getElementById("password1");
-let pass2 = document.getElementById("password2");
-let phone = document.getElementById("phone");
-//let conditions = document.getElementById("conditions");
+let inputs = document.querySelectorAll('input');
 
-document.getElementById ('errorMessage').innerHTML = "";
-firstname.style.borderColor = 'grey';
-lastname.style.borderColor = 'grey';
-login.style.borderColor = 'grey';
-pass1.style.borderColor = 'grey';
-pass2.style.borderColor = 'grey';
-phone.style.borderColor = 'grey';
-
-function welcome() {  
+/*function welcome() {  
     window.location.href = 'welcome.html';
+}*/
+
+let errors = [];
+function checkValidity(input) {
+    let validity = input.validity;
+    input.style.borderColor = 'green';
+
+    if (validity.valueMissing) {
+        errors.push('Поле ' + input.placeholder + ' не заполнено');
+        input.style.borderColor = 'red';        
+    }
+    if (validity.patternMismatch) {
+        errors.push ('Неверный формат заполнения поля ' + input.placeholder);
+        input.style.borderColor = 'red';
+    }
+    if (validity.rangeOverflow) {
+        let max = getAttributeValue(input, 'max');
+        errors.push('Максимальное значение не может быть больше чем ' + max);
+        input.style.borderColor = 'red';
+    }
+    if (validity.rangeUnderflow) {
+        let min = getAttributeValue(input, 'min');
+        errors.push('Минимальное значение не может быть меньше чем ' + min);
+        input.style.borderColor = 'red';
+    }  
 }
 
-    if (firstname.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Имя" не заполнено<br>';
-        firstname.style.borderColor = 'red';
-    }         
-    else if (lastname.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Фамилия" не заполнено<br>';
-        lastname.style.borderColor = 'red';
+function checkPass(){
+    if (inputs[3].value !== inputs[4].value) {
+        errors.push ('Пароли не совпадают');
+        inputs[4].style.borderColor = 'red';
+    }else{
+        return true;
+    }    
+}
+function checkAll(){
+    errors = [];   
+
+    for (let input of inputs) {
+        checkValidity(input);
     }
-    else if (login.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Логин" не заполнено<br>';
-        login.style.borderColor = 'red';
-    }
-    else if (pass1.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Пароль" не заполнено<br>';
-        pass1.style.borderColor = 'red';
-    }
-    else if (pass1.value.length < 6) {
-        document.getElementById ('errorMessage').innerHTML += 'Слишком короткий пароль<br>';
-        pass1.style.borderColor = 'red';
-    }
-    else if (pass1.value !== pass2.value) {
-        document.getElementById ('errorMessage').innerHTML += 'Пароли не совпадают<br>';
-        pass2.style.borderColor = 'red';
-    }
-    else if (pass2.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Повтор пароля" не заполнено<br>';
-        pass2.style.borderColor = 'red';
-    }
-    else if (phone.value =='') {
-        document.getElementById ('errorMessage').innerHTML += 'Поле "Телефон" не заполнено<br>';
-        phone.style.borderColor = 'red';
-    }
+    checkPass();   
+            
+    document.getElementById ('errorMessage').innerHTML = errors.join('. <br>');
     
-    else {               
-        welcome();
-        alert(`Добро пожаловать, ${firstname.value}!`);       
-    }
+    /* welcome();
+    alert(`Добро пожаловать, ${inputs[0].value}!`);*/
+    
 }

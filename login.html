@@ -16,25 +16,33 @@
         </div>
         <form class="form" action="#">
             <div class="form__item">
-                <label class="form__item_label" for="name">Имя</label><br />
-                <input class="form__item_input" id="name" type="text"></div>
+                <input class="form__item_input" id="name" type="text" placeholder="Имя" pattern="[А-Яа-яЁё\s]+"
+                    required>
+                <label class="form__item_label" for="name">Только русские буквы</label><br /></div>
             <div class="form__item">
-                <label class="form__item_label" for="lastname">Фамилия</label><br />
-                <input class="form__item_input" id="lastname" type="text"></div>
+                <input class="form__item_input" id="lastname" type="text" placeholder="Фамилия" pattern="[А-Яа-яЁё\s]+"
+                    required>
+                <label class="form__item_label" for="lastname">Только русские буквы</label><br /></div>
             <div class="form__item">
-                <label class="form__item_label" for="login">Придумайте логин</label><br />
-                <input class="form__item_input" id="login" type="text"></div>
+                <input class="form__item_input" id="login" type="text" placeholder="Логин"
+                    pattern="[а-яА-ЯёЁa-zA-Z0-9]+" required>
+                <label class="form__item_label" for="login">Придумайте логин</label><br /></div>
             <div class="form__item">
-                <label class="form__item_label" for="password1">Придумайте пароль</label><br />
-                <input class="form__item_input" id="password1" type="password"></div>
+                <input class="form__item_input" id="password1" type="password" min="6" max="10" placeholder="Пароль"
+                    pattern="[a-zA-Z][a-zA-Z0-9-_\.]{5,10}"
+                    title="Строчные и прописные латинские буквы, цифры, первый символ обязательно буква" required>
+                <label class="form__item_label" for="password1">Придумайте пароль (не меньше 6 символов)</label><br />
+            </div>
             <div class="form__item">
-                <label class="form__item_label" for="password2">Повторите пароль</label><br />
-                <input class="form__item_input" id="password2" type="password"></div>
+                <input class="form__item_input" id="password2" type="password" min="6" max="10"
+                    placeholder="Повтор пароля" required>
+                <label class="form__item_label" for="password2">Повторите пароль</label><br /></div>
             <div class="form__item">
-                <label class="form__item_label" for="phone">Введите номер мобильного телефона</label><br />
-                <input class="form__item_input" id="phone" type="number" placeholder="+7"></div>
+                <input class="form__item_input" id="phone" type="tel" pattern="(\+7|8)+([0-9]){10}"
+                    placeholder="Телефон" required title="В формате +79000000000 или 89000000000">
+                <label class="form__item_label" for="phone">Введите номер мобильного телефона</label><br /></div>
             <div id="errorMessage"></div>
-            <button class="button" onclick="check()">Зарегистрироваться</button>
+            <button class="btn" onclick="checkAll()">Зарегистрироваться</button>
 
             <div class="conditions">
                 <p>Нажимая кнопку «Зарегистрироваться»:</p>

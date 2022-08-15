@@ -15,7 +15,7 @@ body {
 }
 
 .form__item {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 
 }
 
@@ -40,7 +40,7 @@ body {
     color: gray;
 }
 
-.button {
+.btn {
     width: 280px;
     height: 50px;
     margin-top: 5px;
@@ -52,7 +52,7 @@ body {
     transition: 0.5s ease-in-out;
 }
 
-.button:hover {
+.btn:hover {
     background-color: #ffcc00;
     transition: 0.5s ease-in-out;
 }
@@ -65,6 +65,14 @@ body {
 #errorMessage {
     font-size: 0.8rem;
     color: red;
+}
+
+/*input:invalid {
+    border-color: red;
+}*/
+
+input:valid {
+    border-color: green;
 }
 
 @media screen and (max-height:600px) {
